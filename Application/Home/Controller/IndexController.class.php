@@ -16,6 +16,20 @@ class IndexController extends Controller {
         $this->assign('records', $records)->display('record_info');
     }
 
+    public function query_device(){
+        $device_sn = I('POST.sn');
+        $records = M('record')->where('sn=\'%s\'', array($device_sn))->select();
+        if($records){
+            $data['status'] = 'success';
+            $data['result'] = $records;
+            $this->ajaxReturn($data);
+        }else {
+            $data['status'] = 'error';
+            $data['result'] = null;
+            $this->ajaxReturn($data);
+        }
+    }
+
     public function upload(){
 
         $upload = new \Think\Upload();// 实例化上传类j
