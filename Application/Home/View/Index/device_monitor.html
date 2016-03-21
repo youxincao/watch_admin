@@ -167,8 +167,37 @@
 
     <script type="text/javascript">
  
+        <!-- 查询按钮jquery-->
         $('#query_btn').click(function(){
             var device_sn = $('#text_device_sn').val();
+
+            // disalbe button click
+            $('#query_btn').attr('disalbe', true);
+
+            // start websocket
+            var ws = new WebSocket("ws://123.57.176.192:3001");
+            ws.onopen = function () {
+                console.log("WS open");
+                var data = {
+                    "type" : "setid",
+                    "id" : device_sn,
+                };
+                console.log(JSON.stringify(data));
+                ws.send(JSON.stringify(data));
+            };
+
+            ws.onmessage = function (msg) {
+                console.log("WS onmessage" + JSON.stringify(msg.data));
+            };
+
+            ws.onclose = function () {
+                console.log("WS onclose");
+            };
+            
+            ws.onerror = function () {
+                console.log("WS onerror");
+            };
+
 
             $.ajax({
                 url: "{:U('query_device')}",
