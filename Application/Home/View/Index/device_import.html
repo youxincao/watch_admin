@@ -67,24 +67,36 @@
                         <li>
                             <a><i class="fa fa-dashboard fa-fw"></i> 菜单</a>
                         </li>
+                        
                         <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 设备管理<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                 <a href="{:U('device_record')}">设备查看</a>
+                                </li>
                                 <li>
                                 <a href="{:U('device_monitor')}">报警监控</a>
                                 </li>
-                                </li>
                                 <li>
-                                <a href="{:U('device_import')}">设备导入</a>
+                                    <a href="{:U('device_import')}">设备导入</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        
                         <li>
-                        <a href="{:U('record_info')}"><i class="fa fa-table fa-fw"></i> 信息管理</a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 信息管理<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{:U('record_info')}">报警信息</a>
+                                </li>
+                                <li>
+                                    <a href="{:U('raw_data')}">原始数据</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
+
                         <li>
                         <a href="{:U('voluteer')}"><i class="fa fa-edit fa-fw"></i> 志愿者管理</a>
                         </li>
@@ -92,8 +104,8 @@
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+           <!-- /.navbar-static-side -->
+       </nav>
 
         <div id="page-wrapper">
             <div class="row">
